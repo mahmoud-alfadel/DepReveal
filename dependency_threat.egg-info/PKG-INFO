@@ -1,0 +1,68 @@
+Metadata-Version: 1.2
+Name: dependency-threat
+Version: 0.0.1
+Summary: A Command Line tool to analyze npm dependency vulnerability
+Home-page: https://github.com/mahmoud-alfadel/dependency_threat
+Author: Mahmoud Alfadel
+Author-email: alfadelmahmood@gmail.com
+License: MIT license
+Description: =================
+        Dependency Threat
+        =================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/dependency_threat.svg
+                :target: https://pypi.python.org/pypi/dependency_threat
+        
+        .. image:: https://img.shields.io/travis/mahmoud-alfadel/dependency_threat.svg
+                :target: https://travis-ci.com/mahmoud-alfadel/dependency_threat
+        
+        .. image:: https://readthedocs.org/projects/dependency-threat/badge/?version=latest
+                :target: https://dependency-threat.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        A Command Line tool to analyze npm dependency vulnerability
+        
+        
+        * LICENSE: MIT license
+        * Documentation: https://dependency-threat.readthedocs.io.
+        
+        
+        INSTALLATION
+        -----------------------
+        
+                *  Install it using pip: ``pip install git+"https://github.com/mahmoud-alfadel/dependency_threat"``
+                * Or, clone this repository: ``git clone https://github.com/mahmoud-alfadel/dependency_threat``
+                * and, run: ``pip install -e dependency_threat``
+        
+        
+        USAGE
+        -----------
+        
+                ``dependency_threat --help``
+        
+        
+        =======
+        History
+        =======
+        
+        0.0.1 (2020-11-04)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: dependency_threat
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
