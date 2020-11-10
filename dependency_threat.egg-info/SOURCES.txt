@@ -21,7 +21,7 @@ dependency_threat/helper/step2.py
 dependency_threat/helper/step3.py
 dependency_threat/helper/step4.py
 docs/Makefile
-docs/conf.py
+docs/conf.py 
 docs/contributing.rst
 docs/history.rst
 docs/index.rst
