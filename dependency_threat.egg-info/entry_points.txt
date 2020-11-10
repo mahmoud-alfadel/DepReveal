@@ -1,3 +1,0 @@
-[console_scripts]
-dependency_threat = dependency_threat.cli:console
-
