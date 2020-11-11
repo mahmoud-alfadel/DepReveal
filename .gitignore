@@ -110,3 +110,13 @@ ENV/\
 \
 # IDE settings\
 .vscode/}
+.eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/RECORD
+.eggs/README.txt
+.eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/entry_points.txt
+.eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/PKG-INFO
+.eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/top_level.txt
+.eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/WHEEL
+.eggs/pytest_runner-5.2-py3.7.egg/ptr.py
+.eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/requires.txt
+.eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/LICENSE
+dependency_threat/__pycache__/cli.cpython-37.pyc
