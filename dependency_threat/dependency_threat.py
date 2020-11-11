@@ -5,16 +5,23 @@ from dependency_threat.helper.step4 import find_commits_at_intervals
 from jinja2 import Template
 import os
 path = os.path.abspath(__file__).rsplit("/", 1)[0]
+from colorama import init, Fore, Back, Style
 
 
 def analyze(github_url, access_tokens, interval=5):
-    print("Running Step 1: fetching dependency history")
+
+    #print("Running Step 1: fetching dependency history")
+    #print(Fore.GREEN + 'Running Step 1: fetching dependency history' + Style.RESET_ALL)
+    print(f"{Fore.GREEN}Running Step 1: fetching dependency history{Style.RESET_ALL}")
     df = fetch_dependency_history(github_url, access_tokens)
-    print("Running Step 2: identifying vulnerability levels")
+
+    print(f"{Fore.GREEN}Running Step 2: identifying vulnerability levels{Style.RESET_ALL}")
     df = identifying_vulnerability_levels(df)
-    print("Running Step 3: combining repo commits")
+
+    print(f"{Fore.GREEN}Running Step 3: combining repo commits{Style.RESET_ALL}")
     df = repo_commits_combiner(df)
-    print("Running Step 4: Finding commits at intervals")
+
+    print(f"{Fore.GREEN}Running Step 4: Finding commits at intervals{Style.RESET_ALL}")
     result_df = find_commits_at_intervals(df, interval)
     print("Done.")
     return result_df
@@ -24,8 +31,9 @@ def generate_html(df):
     except:
         pass
     data = []
-    #in case we want to remove the 0%
-    #df = df[~df['interval'].str.contains('20')]
+    #in case we want to remove the 0% in the html page
+    df = df[1:]
+    #print(df)
     for index, row in df.iterrows():
         data.append(row.to_dict())
     with open(os.path.join(path,"helper", "data", "template.html"), 'r') as f:

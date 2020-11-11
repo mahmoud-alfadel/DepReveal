@@ -57,7 +57,7 @@ def load_advisories(all_advisories_v3_file_path, NPM_Advisories_list):
     """
         Loads the NPM advisory into a global variable npm_advisory_list and npm_advisory_map (for multiple vulnerailities)
     """
-    print("entering load_advisories")
+    #print("entering load_advisories")
     with open(all_advisories_v3_file_path, "r", encoding="mac_roman") as f:
         reader = csv.DictReader(f, delimiter=",")
         for row in reader:
@@ -118,8 +118,8 @@ def load_advisories(all_advisories_v3_file_path, NPM_Advisories_list):
             else:
                 npm_advisory_map[module_name][version].append(advisory_obj)
 
-    print(len(npm_advisory_list))
-    print("leaving load_advisories")
+    #print(len(npm_advisory_list))
+    #print("leaving load_advisories")
 
 
 ###################################
@@ -139,7 +139,7 @@ Package_Version_Time_map = {}
 def load_npm_packages_versions_releasetime(
     packages_versions_time_file_path, Package_Version_Time_list
 ):
-    print("entering load_npm_packages_versions_releasetime")
+    #print("entering load_npm_packages_versions_releasetime")
     with open(packages_versions_time_file_path, "r", encoding="mac_roman") as f:
         reader = csv.DictReader(f, delimiter=",")
         for row in reader:
@@ -165,7 +165,7 @@ def load_npm_packages_versions_releasetime(
             versions_list.append(pkg_version)
 
     # print(len(Package_Version_Time_list))
-    print("leaving load_npm_packages_versions_releasetime")
+    #print("leaving load_npm_packages_versions_releasetime")
 
 
 ###################################
@@ -198,7 +198,7 @@ class Repo_Commit:
 
 
 def load_repo_file(df, NPM_Advisories, Package_Version_Time):
-    print("entering load_repo_file")
+    #print("entering load_repo_file")
     Repo_Commit_list = []
     # load repo file into Repo_Commit_list
     repo_name = "X"

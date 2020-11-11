@@ -38,7 +38,7 @@ import os
     help="name & path of the output csv file. By Default it will save in the current folder.",
 )
 def console(url, interval, output_file, access_tokens):
-    """ \n\033[1m✨ Dependency Threat ✨\033[0m - Analyze Github Repository to Find NPM Vulnerabilities."""
+    """ \n\033[1m✨ Dependency Threat ✨\033[0m - Analyze Github Repository to Find npm Vulnerabilities."""
 
     df = analyze(url, access_tokens, interval)
     if output_file:
