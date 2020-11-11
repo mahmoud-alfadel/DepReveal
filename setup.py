@@ -21,6 +21,7 @@ requirements = [
     "tqdm>=4.51.0",
     "xlrd>=1.2.0",
     "XlsxWriter>=1.3.7",
+    "jinja2>=2.11.2",
 ]
 
 setup_requirements = [
