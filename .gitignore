@@ -120,3 +120,4 @@ ENV/\
 .eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/requires.txt
 .eggs/pytest_runner-5.2-py3.7.egg/EGG-INFO/LICENSE
 dependency_threat/__pycache__/cli.cpython-37.pyc
+*.pyc
