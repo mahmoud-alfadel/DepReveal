@@ -1,6 +1,10 @@
 
 Dependency Threat
 =================
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) [![PyPI pyversions](https://img.shields.io/pypi/pyversions/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+
+   
 A Command Line tool to analyze the threat of npm dependency vulnerabilities through the history of your GitHub application.
 
 * LICENSE: MIT license
@@ -50,7 +54,6 @@ Tool Output
 The tool output  in the CLI looks like the following:
 ![alt text](https://github.com/mahmoud-alfadel/Vagrant-Tool-Demo/blob/master/Fig2.png)
 
-sd
 
 Generated Files
 -----------
@@ -64,6 +67,6 @@ The tool generates two files:
 ---
 **Contact us**
 -----------
-In any case, please don't hesitate to contact us at alfadelmahmood@gmail.com
+In any case, please don't hesitate to contact us at alfadelmahmood[at]gmail[dot]com
 
 ---
