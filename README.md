@@ -1,4 +1,3 @@
-
 Dependency Threat
 =================
 
@@ -54,6 +53,7 @@ The previous command uses the three arguments:
 Tool Output
 -----------
 The tool output  in the CLI looks like the following:
+
 ![alt text](https://github.com/mahmoud-alfadel/Figure/blob/main/Fig2.png)
 
 
