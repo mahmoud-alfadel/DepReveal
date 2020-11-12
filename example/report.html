@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+
+    <title>Dependency Threat Report of wiki</title>
+  </head>
+  <body>
+      <section><div class="container">
+        <div class="row">
+            <div class="col jumbotron">
+              <h1 class='text-center'> Dependency Threat Analysis Report of wiki</h1>
+              <h3 class='text-center'>The repository <a href="https://github.com/Requarks/wiki">wiki</a> belongs to <a href="https://github.com/Requarks">Requarks</a></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                    <h2 class='text-center'> Project Lifetime Overview</h2>
+            </div>
+        </div>
+       <div class='divider'><hr></div>
+        <div class="row">
+            <div class='col'>
+                
+                    <canvas id="canvas"></canvas>
+                    
+                    
+	<script>
+		var barChartData = {
+			labels: [20, 40, 60, 80, 100],
+			datasets: [{
+				label: 'Low Threats',
+				backgroundColor: "#00FF00",
+				stack: 'Stack 0',
+				data: [2, 0, 0, 0, 0]
+			}, {
+				label: 'Medium Threats',
+				backgroundColor: "#FFA500",
+				stack: 'Stack 0',
+				data: [0, 0, 0, 0, 0]
+			}, {
+				label: 'High Threats',
+				backgroundColor: "#FF0000",
+				stack: 'Stack 0',
+				data: [0, 0, 0, 0, 0]
+      },
+      {
+				label: 'Unaffected',
+				stack: 'Stack 0',
+				data: [83, 99, 117, 129, 145]
+			}
+    ]
+
+        }
+        
+        </script>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                    <h2 class='text-center'> Project Lifetime Breakdown</h2>
+            </div>
+        </div>
+        <div class='divider'><hr></div>
+        
+        <div class="row">
+            <div class="col col-6">
+                <canvas id="chart-area20"></canvas>
+                <script type='text/javascript'>
+                var config20 = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [
+			2, 0, 0, 85-2],
+					backgroundColor: [
+                       "#00ff00",
+                       "#FFA500",
+                       "#ff0000",
+                 ],
+					label: 'Affected Packages'
+				}],
+				labels: [
+					'Low Threat',
+					'Medium Threat',
+          'High Threat',
+          "Unaffected "
+	
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'bottom',
+				},
+				title: {
+					display: true,
+					text: 'Commit Affected low'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+                </script>
+            </div>
+            <div class="col col-6">
+                <h5>Project lifetime 20%</h5>
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Commit SHA:</th>
+                        <td> <a href="https://github.com/Requarks/wiki/commit/5312f5320a523adacd187958e2e07fec3a13cc03">5312f5320a523adacd187958e2e07fec3a13cc03</a></td>
+                      </tr>
+                      
+                      <tr>
+                            <th scope="row">Commit Date:</th>
+                            <td>2017-06-18T22:35:33Z</td>
+                          </tr>
+                        
+                      <tr>
+                        <th scope="row">Total Packages:</th>
+                        <td>85</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Affected Packages:</th>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Unaffected Packages:</th>
+                        <td>83</td>
+                      </tr>
+                      <tr>
+                      <th scope="row">Ratio:</th>
+                      <td>0.02</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Affected Packages:</th>
+                      <td>lodash:^4.17.4|moment:^2.18.1</td>
+                    </tr>
+
+
+
+                    
+                    </tbody>
+                  </table>
+            </div>
+            <div class='col'><hr></div>
+        </div>
+    
+        <div class="row">
+            <div class="col col-6">
+                <canvas id="chart-area40"></canvas>
+                <script type='text/javascript'>
+                var config40 = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [
+			0, 0, 0, 99-0],
+					backgroundColor: [
+                       "#00ff00",
+                       "#FFA500",
+                       "#ff0000",
+                 ],
+					label: 'Affected Packages'
+				}],
+				labels: [
+					'Low Threat',
+					'Medium Threat',
+          'High Threat',
+          "Unaffected "
+	
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'bottom',
+				},
+				title: {
+					display: true,
+					text: 'Commit Unaffected'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+                </script>
+            </div>
+            <div class="col col-6">
+                <h5>Project lifetime 40%</h5>
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Commit SHA:</th>
+                        <td> <a href="https://github.com/Requarks/wiki/commit/346493f845a52ae6e63948d1689f075a6c92b0da">346493f845a52ae6e63948d1689f075a6c92b0da</a></td>
+                      </tr>
+                      
+                      <tr>
+                            <th scope="row">Commit Date:</th>
+                            <td>2018-03-26T05:11:49Z</td>
+                          </tr>
+                        
+                      <tr>
+                        <th scope="row">Total Packages:</th>
+                        <td>99</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Affected Packages:</th>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Unaffected Packages:</th>
+                        <td>99</td>
+                      </tr>
+                      <tr>
+                      <th scope="row">Ratio:</th>
+                      <td>0.0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Affected Packages:</th>
+                      <td></td>
+                    </tr>
+
+
+
+                    
+                    </tbody>
+                  </table>
+            </div>
+            <div class='col'><hr></div>
+        </div>
+    
+        <div class="row">
+            <div class="col col-6">
+                <canvas id="chart-area60"></canvas>
+                <script type='text/javascript'>
+                var config60 = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [
+			0, 0, 0, 117-0],
+					backgroundColor: [
+                       "#00ff00",
+                       "#FFA500",
+                       "#ff0000",
+                 ],
+					label: 'Affected Packages'
+				}],
+				labels: [
+					'Low Threat',
+					'Medium Threat',
+          'High Threat',
+          "Unaffected "
+	
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'bottom',
+				},
+				title: {
+					display: true,
+					text: 'Commit Unaffected'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+                </script>
+            </div>
+            <div class="col col-6">
+                <h5>Project lifetime 60%</h5>
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Commit SHA:</th>
+                        <td> <a href="https://github.com/Requarks/wiki/commit/7e458f98b469e1fedf59e8be1af65c1c6052bb48">7e458f98b469e1fedf59e8be1af65c1c6052bb48</a></td>
+                      </tr>
+                      
+                      <tr>
+                            <th scope="row">Commit Date:</th>
+                            <td>2019-02-18T02:48:48Z</td>
+                          </tr>
+                        
+                      <tr>
+                        <th scope="row">Total Packages:</th>
+                        <td>117</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Affected Packages:</th>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Unaffected Packages:</th>
+                        <td>117</td>
+                      </tr>
+                      <tr>
+                      <th scope="row">Ratio:</th>
+                      <td>0.0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Affected Packages:</th>
+                      <td></td>
+                    </tr>
+
+
+
+                    
+                    </tbody>
+                  </table>
+            </div>
+            <div class='col'><hr></div>
+        </div>
+    
+        <div class="row">
+            <div class="col col-6">
+                <canvas id="chart-area80"></canvas>
+                <script type='text/javascript'>
+                var config80 = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [
+			0, 0, 0, 129-0],
+					backgroundColor: [
+                       "#00ff00",
+                       "#FFA500",
+                       "#ff0000",
+                 ],
+					label: 'Affected Packages'
+				}],
+				labels: [
+					'Low Threat',
+					'Medium Threat',
+          'High Threat',
+          "Unaffected "
+	
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'bottom',
+				},
+				title: {
+					display: true,
+					text: 'Commit Unaffected'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+                </script>
+            </div>
+            <div class="col col-6">
+                <h5>Project lifetime 80%</h5>
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Commit SHA:</th>
+                        <td> <a href="https://github.com/Requarks/wiki/commit/4a2f1d045b1d092f2e2827dd40f6272f126135ca">4a2f1d045b1d092f2e2827dd40f6272f126135ca</a></td>
+                      </tr>
+                      
+                      <tr>
+                            <th scope="row">Commit Date:</th>
+                            <td>2019-12-23T05:12:19Z</td>
+                          </tr>
+                        
+                      <tr>
+                        <th scope="row">Total Packages:</th>
+                        <td>129</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Affected Packages:</th>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Unaffected Packages:</th>
+                        <td>129</td>
+                      </tr>
+                      <tr>
+                      <th scope="row">Ratio:</th>
+                      <td>0.0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Affected Packages:</th>
+                      <td></td>
+                    </tr>
+
+
+
+                    
+                    </tbody>
+                  </table>
+            </div>
+            <div class='col'><hr></div>
+        </div>
+    
+        <div class="row">
+            <div class="col col-6">
+                <canvas id="chart-area100"></canvas>
+                <script type='text/javascript'>
+                var config100 = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [
+			0, 0, 0, 145-0],
+					backgroundColor: [
+                       "#00ff00",
+                       "#FFA500",
+                       "#ff0000",
+                 ],
+					label: 'Affected Packages'
+				}],
+				labels: [
+					'Low Threat',
+					'Medium Threat',
+          'High Threat',
+          "Unaffected "
+	
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'bottom',
+				},
+				title: {
+					display: true,
+					text: 'Commit Unaffected'
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+                </script>
+            </div>
+            <div class="col col-6">
+                <h5>Project lifetime 100%</h5>
+                <table class="table">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Commit SHA:</th>
+                        <td> <a href="https://github.com/Requarks/wiki/commit/f56b6ee0c080300e57526f3fbb1e8f795deacc48">f56b6ee0c080300e57526f3fbb1e8f795deacc48</a></td>
+                      </tr>
+                      
+                      <tr>
+                            <th scope="row">Commit Date:</th>
+                            <td>2020-10-26T00:37:12Z</td>
+                          </tr>
+                        
+                      <tr>
+                        <th scope="row">Total Packages:</th>
+                        <td>145</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Affected Packages:</th>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Number of Unaffected Packages:</th>
+                        <td>145</td>
+                      </tr>
+                      <tr>
+                      <th scope="row">Ratio:</th>
+                      <td>0.0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Affected Packages:</th>
+                      <td></td>
+                    </tr>
+
+
+
+                    
+                    </tbody>
+                  </table>
+            </div>
+            <div class='col'><hr></div>
+        </div>
+    
+</div>
+</section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script >
+		window.onload = function() {
+
+            
+                var ctx20 = document.getElementById('chart-area20').getContext('2d');
+	    		window.myDoughnut20 = new Chart(ctx20, config20);
+
+            
+                var ctx40 = document.getElementById('chart-area40').getContext('2d');
+	    		window.myDoughnut40 = new Chart(ctx40, config40);
+
+            
+                var ctx60 = document.getElementById('chart-area60').getContext('2d');
+	    		window.myDoughnut60 = new Chart(ctx60, config60);
+
+            
+                var ctx80 = document.getElementById('chart-area80').getContext('2d');
+	    		window.myDoughnut80 = new Chart(ctx80, config80);
+
+            
+                var ctx100 = document.getElementById('chart-area100').getContext('2d');
+	    		window.myDoughnut100 = new Chart(ctx100, config100);
+
+            
+        
+            
+			var ctx_bar = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx_bar, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					title: {
+						display: true,
+						text: 'Number of vulnerable dependencies over project lifetime'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false
+					},
+					responsive: true,
+					scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+					}
+				}
+			});
+        
+        }
+    </script>
+</body>
+</html>
