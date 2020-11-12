@@ -38,7 +38,7 @@ To understand the commands used by the tool, please run the following:
 dependency_threat --help
 ```
 
-Example
+EXAMPLE
 -----------
 To help you use the tool, we show below an example of running the tool on a popular Node.js application called Wiki.js. We assume that the tool is already installed. We use the following command to run the tool:
 ```
@@ -50,14 +50,14 @@ The previous command uses the three arguments:
 * The URL of the GitHub repository.
 
 
-Tool Output
+TOOL OUTPUT
 -----------
 The tool output  in the CLI looks like the following:
 
 ![alt text](https://github.com/mahmoud-alfadel/Figure/blob/main/Fig2.png)
 
 
-Generated Files
+GENERATED REPORTS
 -----------
 The tool generates two files: 
 * CSV file that contains all the details of the threat levels of dependnecies in the project.
@@ -68,7 +68,7 @@ The tool generates two files:
 
 
 ---
-**Contact us**
+**CONTACT US**
 -----------
 In any case, please don't hesitate to contact us at alfadelmahmood[at]gmail[dot]com
 
