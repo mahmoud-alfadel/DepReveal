@@ -1,8 +1,8 @@
 Dependency Threat
 =================
-
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) 
-![](https://badgen.net/badge/version/v1.0.0/blue)
+![](https://badgen.net/badge/PRs/Welcome/green)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) 
+![](https://badgen.net/badge/version/v1.0.0/red)
 ![](https://badgen.net/badge/python/3.5|3.6|3.7/blue)
 
    
