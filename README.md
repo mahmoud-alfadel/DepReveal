@@ -1,10 +1,9 @@
 Dependency Threat
 =================
-![](https://badgen.net/badge/PRs/Welcome/green)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) 
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 ![](https://badgen.net/badge/version/v1.0.0/red)
 ![](https://badgen.net/badge/python/3.5|3.6|3.7/blue)
-
+![](https://badgen.net/badge/PRs/Welcome/green)
    
 A Command Line tool to analyze the threat of npm dependency vulnerabilities through the history of your GitHub application.
 
