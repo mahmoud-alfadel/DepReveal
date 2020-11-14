@@ -7,8 +7,6 @@ Dependency Threat
    
 A Command-Line tool to analyze the threat of npm dependency vulnerabilities through the history of your GitHub application.
 
-* LICENSE: MIT license
-
 
 CONCEPT
 ---------------------------------------------------------------------
