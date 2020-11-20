@@ -1,4 +1,3 @@
-# for files in repo/rq_new/*.csv
 import csv
 import glob
 import os
@@ -25,6 +24,7 @@ class repo_commits:
         self.max_satisfying_status = max_satisfying_status
         self.combined_packages_and_versions = combined_packages_and_versions
         self.final_commit_status = final_commit_status
+        
 
 
 class repo_combined_commits:
@@ -78,8 +78,10 @@ class package_name_version:
 
 
 def repo_commits_combiner(df):
+    repo_dates_list = []
     repo_commits_list = []
     repo_combined_commits_list = []
+    repo_unique_date_list = []
     repo_unique_sha_list = []
     repo_commits_same_sha_list = []
 
@@ -92,7 +94,7 @@ def repo_commits_combiner(df):
         max_satisfying_status = row["max_satisfying_status"]
         combined_packages_and_versions = ""
         final_commit_status = ""
-        repo_commits_list.append(
+        repo_dates_list.append(
             repo_commits(
                 repo_name,
                 commit_sha,
@@ -105,6 +107,12 @@ def repo_commits_combiner(df):
             )
         )
 
+    # find unique date
+    for repo_commit in repo_dates_list:
+        commit_date = repo_commit.commit_date
+        if commit_date not in repo_unique_date_list:
+            repo_unique_date_list.append(commit_date)
+
     # find unique sha
     for repo_commit in repo_commits_list:
         commit_sha = repo_commit.commit_sha
@@ -112,13 +120,13 @@ def repo_commits_combiner(df):
             repo_unique_sha_list.append(commit_sha)
 
     # find related commits
-    for unique_sha in repo_unique_sha_list:
-        repo_commits_same_sha_list = []
-        for repo_commit in repo_commits_list:
-            if repo_commit.commit_sha == unique_sha:
-                repo_commits_same_sha_list.append(repo_commit)
+    for unique_date in repo_unique_date_list:
+        repo_commits_same_date_list = []
+        for repo_commit in repo_dates_list:
+            if repo_commit.commit_date == unique_date:
+                repo_commits_same_date_list.append(repo_commit)
 
-        # commit affected?
+        # date affected?
         one_affected = False
         one_affected_max_of_low_med_high = ""
         affected_packages_list = []
@@ -126,7 +134,7 @@ def repo_commits_combiner(df):
         affected_packages_medium_list = []
         affected_packages_high_list = []
         all_packages_list = []
-        for repo_commit in repo_commits_same_sha_list:
+        for repo_commit in repo_commits_same_date_list:
             all_packages_list.append(
                 package_name_version(
                     repo_commit.package_name, repo_commit.package_version
@@ -180,7 +188,7 @@ def repo_commits_combiner(df):
             commit_affected = "Commit Affected" + " " + one_affected_max_of_low_med_high
         else:
             commit_affected = "Commit Unaffected"
-        commit_to_copy = repo_commits_same_sha_list[0]
+        commit_to_copy = repo_commits_same_date_list[0]
         division_result = len(affected_packages_list) / len(all_packages_list)
         g = float("{0:.2f}".format(division_result))
         combined_commit = repo_combined_commits(
@@ -206,7 +214,7 @@ def repo_commits_combiner(df):
         repo_combined_commits_list.append(combined_commit)
 
     # extra check
-    if (len(repo_unique_sha_list) == len(repo_combined_commits_list)):
+    if (len(repo_unique_date_list) == len(repo_combined_commits_list)):
         print("Successfully combined ")
 
     repo_combined_commits_list.reverse()
@@ -305,42 +313,3 @@ def repo_commits_combiner(df):
         )
     df = df.append(data, ignore_index=True)
     return df
-
-
-# assumes commits are ordered ascending (commit_date)
-def mark_fixing_commits(combined_commits_list):
-    prev_c = None
-    first_loop = True
-    for c in combined_commits_list:
-        if first_loop:
-            prev_c = c
-            first_loop = False
-            continue
-
-        if (c.affected_count == 0) and (prev_c.affected_count > 0):
-            c.is_fixing = True
-            affected_packages_string = ""
-            for aff in c.affected_packages:
-                affected_packages_string = (
-                    affected_packages_string
-                    + aff.package_name
-                    + ":"
-                    + aff.package_version
-                    + "|"
-                )
-            affected_packages_string = affected_packages_string[:-1]
-            c.is_fixing_reason = affected_packages_string
-            prev_c = c
-            continue
-
-        c_affected_packages_list = []
-        for pckg in c.affected_packages:
-            if pckg.package_name.lower().strip() not in c_affected_packages_list:
-                c_affected_packages_list.append(pckg.package_name.lower().strip())
-
-        for prev_c_pckg in prev_c.affected_packages:
-            if prev_c_pckg.package_name.lower().strip() not in c_affected_packages_list:
-                c.is_fixing = True
-                c.is_fixing_reason = prev_c_pckg.package_name
-
-        prev_c = c

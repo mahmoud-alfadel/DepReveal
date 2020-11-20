@@ -4,7 +4,12 @@ import csv
 import sys
 import requests
 import pandas as pd
-
+import glob
+import pytz
+import os
+import datetime
+from datetime import date
+pd.options.mode.chained_assignment = None 
 
 def get_package_dependencies(
     sha: str, username: str, repo: str, filename: str = "package.json"
@@ -108,4 +113,24 @@ def fetch_dependency_history(github_url: str, access_tokens: str) -> pd.DataFram
         df = df.append(result, ignore_index=True)
         df = df.drop_duplicates()
         df = df[~df["version"].str.contains("/")]
+    
+    df['date'] = pd.to_datetime(df['date'])
+    today = date.today()
+    dates = pd.date_range(df['date'].min().strftime('%Y-%m-%d'), today)
+    missing_dates = dates[~dates.isin(df['date'].dt.date)].to_list()    
+    avail_dates = dates[dates.isin(df['date'].dt.date)].to_list()[::-1]
+    dates = dates.to_list()
+    nf = pd.DataFrame()
+    for missing_date in missing_dates:
+        for last_matched_date in avail_dates:
+            if last_matched_date > missing_date: continue
+            else: break
+        rows = df[df['date'].dt.date == last_matched_date].copy(deep=False)
+        rows['date'] = rows['date'].apply(lambda x: pytz.utc.localize(missing_date))
+        #print(rows)  print to check the progress
+        nf = pd.concat([nf, rows])
+    df = pd.concat([df, nf])
+    df['date'] = df.date.astype(str)
+    #df.to_csv("Continuous_dates.csv", index=False)
+    
     return df
