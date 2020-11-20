@@ -1,4 +1,3 @@
-# for files in repo/rq_new/*.csv
 import csv
 import glob
 import os
@@ -314,41 +313,3 @@ def repo_commits_combiner(df):
         )
     df = df.append(data, ignore_index=True)
     return df
-
-# assumes commits are ordered ascending (commit_date)
-def mark_fixing_commits(combined_commits_list):
-    prev_c = None
-    first_loop = True
-    for c in combined_commits_list:
-        if first_loop:
-            prev_c = c
-            first_loop = False
-            continue
-
-        if (c.affected_count == 0) and (prev_c.affected_count > 0):
-            c.is_fixing = True
-            affected_packages_string = ""
-            for aff in c.affected_packages:
-                affected_packages_string = (
-                    affected_packages_string
-                    + aff.package_name
-                    + ":"
-                    + aff.package_version
-                    + "|"
-                )
-            affected_packages_string = affected_packages_string[:-1]
-            c.is_fixing_reason = affected_packages_string
-            prev_c = c
-            continue
-
-        c_affected_packages_list = []
-        for pckg in c.affected_packages:
-            if pckg.package_name.lower().strip() not in c_affected_packages_list:
-                c_affected_packages_list.append(pckg.package_name.lower().strip())
-
-        for prev_c_pckg in prev_c.affected_packages:
-            if prev_c_pckg.package_name.lower().strip() not in c_affected_packages_list:
-                c.is_fixing = True
-                c.is_fixing_reason = prev_c_pckg.package_name
-
-        prev_c = c

@@ -113,6 +113,7 @@ def fetch_dependency_history(github_url: str, access_tokens: str) -> pd.DataFram
         df = df.append(result, ignore_index=True)
         df = df.drop_duplicates()
         df = df[~df["version"].str.contains("/")]
+    
     df['date'] = pd.to_datetime(df['date'])
     today = date.today()
     dates = pd.date_range(df['date'].min().strftime('%Y-%m-%d'), today)
@@ -131,4 +132,5 @@ def fetch_dependency_history(github_url: str, access_tokens: str) -> pd.DataFram
     df = pd.concat([df, nf])
     df['date'] = df.date.astype(str)
     #df.to_csv("Continuous_dates.csv", index=False)
+    
     return df
