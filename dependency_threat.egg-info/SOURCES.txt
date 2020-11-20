@@ -2,7 +2,7 @@ CONTRIBUTING.rst
 HISTORY.rst
 LICENSE
 MANIFEST.in
-README.rst
+README.md
 setup.cfg
 setup.py
 dependency_threat/__init__.py

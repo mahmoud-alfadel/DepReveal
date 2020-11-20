@@ -9,7 +9,6 @@ from colorama import init, Fore, Back, Style
 
 
 def analyze(github_url, access_tokens, interval=5):
-
     #print("Running Step 1: fetching dependency history")
     #print(Fore.GREEN + 'Running Step 1: fetching dependency history' + Style.RESET_ALL)
     print(f"{Fore.GREEN}Running Step 1: fetching dependency history{Style.RESET_ALL}")
@@ -17,14 +16,19 @@ def analyze(github_url, access_tokens, interval=5):
 
     print(f"{Fore.GREEN}Running Step 2: identifying vulnerability levels{Style.RESET_ALL}")
     df = identifying_vulnerability_levels(df)
-
+    #del df['commit_sha']
+    df = df.drop_duplicates(subset=['commit_date', 'package_name'])
+    df.to_csv("continuous_dates_levels.csv", index=False)
+    
     print(f"{Fore.GREEN}Running Step 3: combining repo commits{Style.RESET_ALL}")
     df = repo_commits_combiner(df)
+    df.to_csv("combine_continuous_dates_levels.csv", index=False)
 
     print(f"{Fore.GREEN}Running Step 4: Finding commits at intervals{Style.RESET_ALL}")
     result_df = find_commits_at_intervals(df, interval)
     print("Done.")
     return result_df
+
 def generate_html(df):
     try:
         author, repository = df['repo_name'][0].split("/")
