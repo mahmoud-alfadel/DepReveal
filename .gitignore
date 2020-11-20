@@ -122,3 +122,4 @@ ENV/\
 dependency_threat/__pycache__/cli.cpython-37.pyc
 *.pyc
 *.pyc
+dependency_threat.egg-info/SOURCES.txt
