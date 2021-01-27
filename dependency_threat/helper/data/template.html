@@ -7,8 +7,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
-	<style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</script>
+<script src="https://www.jqueryscript.net/demo/Word-Tag-Cloud-Generator-jQWCloud/Word%20Cloud/js/lib/jQWCloudv3.1.js"></script>
+  
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+  <style>
+
 	canvas {
 		-moz-user-select: none;
 		-webkit-user-select: none;
@@ -32,181 +42,265 @@
             </div>
         </div>
        <div class='divider'><hr></div>
+       <div class='row'>
+         <div class='col' style="padding:10px">
+          <div id="previous_b" class='btn btn-info'>&#60;</div>
+          <div id="next_b" class='btn btn-info'>&#62;</div>
+          
+          </div>
+        </div>
         <div class="row">
-            <div class='col'>
-                
-                    <canvas id="canvas"></canvas>
-                    
-                    
-	<script>
-		var barChartData = {
-			labels: {{intervals}},
-			datasets: [{
-				label: 'Low Threats',
-				backgroundColor: "#00FF00",
-				stack: 'Stack 0',
-				data: {{low_threats}}
-			}, {
-				label: 'Medium Threats',
-				backgroundColor: "#FFA500",
-				stack: 'Stack 0',
-				data: {{medium_threats}}
-			}, {
-				label: 'High Threats',
-				backgroundColor: "#FF0000",
-				stack: 'Stack 0',
-				data: {{high_threats}}
-      },
-      {
-				label: 'Unaffected',
-				stack: 'Stack 0',
-				data: {{unaffected}}
-			}
-    ]
+          <div class="col">
+          <div id="github_graph" class="d-flex justify-content-center"></div>
+            <script>
+                var cal = new CalHeatMap();
+                cal.init({
+                            
+                              itemSelector: "#github_graph",
+                              domain: "year",
+                              displayLegend: false,
+                              subDomain: "day",
+                              data: {{date_dict}},
+                              start: new Date({{max_date}}),
+                              end: new Date(),
+                              cellSize: 13,
+                              range: 1,
+                              itemName: "(3=High, 2=Medium, 1=Low, 0=Unaffected) threat",
+                              previousSelector: "#previous_b",
+                              nextSelector: "#next_b",
+                              legend: [1,2,3,4],
+                              legendColors: {
+		                                empty: "green",
+		                                min: "#ebedf0",
+		                                max: "red"
+                            },
+                  });
 
-        }
-        
+            </script>
+         </div>
+       </div>
+       <div class="row">
+        <div class="col offset-1" style='padding-bottom:30px;'>
+          <style>
+            .legend { list-style: none; }
+.legend li { float: left; margin-right: 10px; }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 5px; }
+/* your colors */
+.legend .low { background-color: #d4cafd; }
+.legend .high { background-color: #ff488d; }
+.legend .medium { background-color: #f494e2;}
+.legend .unaffected { background-color: green; }
+          </style>
+          <ul class="legend">
+            <li><span class="unaffected"></span> Unaffected</li>
+            <li><span class="low"></span> Low</li>
+            <li><span class="medium"></span> Medium</li>
+            <li><span class="high"></span> High</li>
+         </ul>
+        </div>
+      </div>
+
+
+       <div class='row'>
+        <div class="col">
+                <h2 class='text-center'> Project Timeline Overview</h2>
+           </div>
+          </div>
+          <div class='row'>
+           <div class='col'>
+            <hr>
+          </div>
+          </div>
+        <div class="row">
+            <div class='col'> 
+              <div id="lifetime-overview"></div>               
+        </div>
+
+        <script>
+                        
+                            var low = {
+                                x: {{ intervals }},
+                                y: {{ low_threats }},
+                                type: "bar",
+                                name: "Low Threat",
+                                marker: {
+                                  color: "blue",
+                                }
+                            }
+                            var medium = {
+                                x: {{ intervals }},
+                                y: {{ medium_threats }},
+                                type: "bar",
+                                name: "Medium Threat",
+                                marker: {
+                                  color: "orange",
+                                }
+                            }
+                            var high = {
+                                x: {{ intervals }},
+                                y: {{ high_threats }},
+                                type: "bar",
+                                name: "High Threat",
+                                marker: {
+                                  color: "red",
+                                }
+                            }
+                            var unaffected = {
+                                x: {{ intervals }},
+                                y: {{ unaffected }},
+                                type: "bar",
+                                name: "Unaffected",
+                                marker: {
+                                  color: "green",
+                                }
+                            }
+                            var data = [unaffected, low, medium, high]
+                            var layout = {
+                                barmode: 'stacked',
+                                bargap: 0.5,
+                                yaxis: {
+                                         rangemode: 'tozero'
+                                }
+                              
+                              };
+
+                            Plotly.newPlot('lifetime-overview', data, layout, {
+                              displaylogo:false,
+                              modeBarButtonsToRemove: [ 'resetScale2d', 'select2d', 'toImage', 'editInChartStudio', 'drawclosedpath', 'hoverClosestCartesian','hoverCompareCartesian','toggleSpikelines',  'sendDataToCloud',  'lasso2d'],
+	
+                            
+                            
+                            
+                            })
         </script>
         </div>
-        </div>
+          <div class='row'>
+                      <div class= 'col'>
+                        <!-- <div id='timeline-overview'></div> -->
+ 
+          <script>
+                          var layout = {
+                                                   hovermode: false,
+                                                    yaxis: {
+                                                      //rangemode: 'tozero',
+                                                      fixedrange: true,
+                                                      showgrid: false,
+                                                      zeroline: false,
+                                                      showline: false,
+                                                      showticklabels: false
+                                                    },
+                                                    xaxis: {
+                                                      fixedrange: true
+                                                    }
+                                                  };
 
-        <div class="row">
-            <div class="col">
-                    <h2 class='text-center'> Project Lifetime Breakdown</h2>
-            </div>
-        </div>
-        <div class='divider'><hr></div>
-        {% for row in data %}
-        <div class="row">
-            <div class="col col-6">
-                <canvas id="chart-area{{row.interval}}"></canvas>
-                <script type='text/javascript'>
-                var config{{row.interval}} = {
-			type: 'doughnut',
-			data: {
-				datasets: [{
-					data: [
-			{{row.affected_packages_low_list_count}}, {{row.affected_packages_medium_list_count}}, {{row.affected_packages_high_list_count}}, {{row.all_count}}-{{row.affected_count}}],
-					backgroundColor: [
-                       "#00ff00",
-                       "#FFA500",
-                       "#ff0000",
-                 ],
-					label: 'Affected Packages'
-				}],
-				labels: [
-					'Low Threat',
-					'Medium Threat',
-          'High Threat',
-          "Unaffected "
-	
-				]
-			},
-			options: {
-				responsive: true,
-				legend: {
-					position: 'bottom',
-				},
-				title: {
-					display: true,
-					text: '{{row.commit_status}}'
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				}
-			}
-		};
-
-                </script>
-            </div>
-            <div class="col col-6">
-                <h5>Project lifetime {{row.interval}}%</h5>
-                <table class="table">
-                    <tbody>
-                      <tr>
-                        <th scope="row">Commit SHA:</th>
-                        <td> <a href="https://github.com/{{author}}/{{repository}}/commit/{{row.commit_sha}}">{{row.commit_sha}}</a></td>
-                      </tr>
-                      
-                      <tr>
-                            <th scope="row">Commit Date:</th>
-                            <td>{{row.commit_date}}</td>
-                          </tr>
-                        
-                      <tr>
-                        <th scope="row">Total Packages:</th>
-                        <td>{{row.all_count}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Number of Affected Packages:</th>
-                        <td>{{row.affected_count}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">Number of Unaffected Packages:</th>
-                        <td>{{row.all_count - row.affected_count}}</td>
-                      </tr>
-                      <tr>
-                      <th scope="row">Ratio:</th>
-                      <td>{{row.ratio}}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Affected Packages:</th>
-                      <td>{{row.affected_packages}}</td>
-                    </tr>
+          Plotly.plot('timeline-overview', [{
+                  x: {{unaffected_timeline_date}},
+                  y: {{unaffected_timeline}},
+                  type: 'scatter', 
+                  opacity: 0.8,
+                  line: { color: 'green', width: 20 },
+                  mode: 'lines',
+                  name: 'Unaffected'
+                },{
+                  x: {{low_timeline_date}},
+                  y: {{low_timeline}},
+                  type: 'scatter', 
+                  opacity: 0.8,
+                  line: { color: 'blue', width: 20 },
+                  mode: 'lines',
+                  name: 'Low Threats'
+                },
+                {
+                  x: {{medium_timeline_date}},
+                  y: {{medium_timeline}},
+                  type: 'scatter', 
+                  opacity: 0.8,
+                  line: { color: 'orange', width: 20 },
+                  mode: 'lines',
+                  name: 'Medium Threats'
+                },{
+                  x: {{high_timeline_date}},
+                  y: {{high_timeline}},
+                  type: 'scatter', 
+                  opacity: 0.8,
+                  line: { color: 'red', width: 20 },
+                  mode: 'lines',
+                  name: 'High Threat'
+                }], layout, {displaylogo:false, displayModeBar:false})
 
 
+          </script>
 
-                    
-                    </tbody>
-                  </table>
-            </div>
-            <div class='col'><hr></div>
-        </div>
-    {% endfor %}
+      </div>
+      </div>
+
+
+     
+</div>
+<div class='row'>
+  <div class="col">
+          <h2 class='text-center'> Vulnerable Packages</h2>
+     </div>
+    </div>
+    <div class="container">
+    <div class='row'>
+     <div class='col'>
+      <hr>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col offset-1" style='padding-bottom:10px; margin-top:30px;'>
+        <style>
+          .legend_2 { list-style: none; }
+.legend_2 li { float: left; margin-right: 10px; }
+.legend_2 span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 5px; }
+/* your colors */
+.legend_2 .low { background-color: blue; }
+.legend_2 .high { background-color: red; }
+.legend_2 .medium { background-color: orange;}
+.legend_2 .unaffected { background-color: green; }
+        </style>
+        <ul class="legend_2">
+          <li><span class="low"></span> Low</li>
+          <li><span class="medium"></span> Medium</li>
+          <li><span class="high"></span> High</li>
+       </ul>
+      </div>
+    </div>
+  </div>
+
+<div class='row'>
+  <div class='col col-md-6 offset-3'>
+    <div id='wordCloud' style='border:1px solid darkGray; height: 400px;'></div>
+
+    <script>
+      const myData = [
+
+        {% for k, v in high_list.items() %}
+        {word: '{{k}}', weight: {{v}}, color: 'red'},      
+        {% endfor%}
+        {% for k, v in medium_list.items() %}
+        {word: '{{k}}', weight: {{v}}, color: 'orange'},      
+        {% endfor%}
+        {% for k, v in low_list.items() %}
+        {word: '{{k}}', weight: {{v}}, color: 'blue'},      
+        {% endfor%}
+
+        {word: '', weight: 0, color:'green'}
+]
+$("#wordCloud").jQWCloud({
+  words: myData,
+  title: 'vulnerable packages',
+  minFont: 16,
+  maxFont: 50,
+  
+});
+    </script>
+  </div>
 </div>
 </section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script >
-		window.onload = function() {
-
-            {%for row in data %}
-                var ctx{{row.interval}} = document.getElementById('chart-area{{row.interval}}').getContext('2d');
-	    		window.myDoughnut{{row.interval}} = new Chart(ctx{{row.interval}}, config{{row.interval}});
-
-            {%endfor %}
-        
-            
-			var ctx_bar = document.getElementById('canvas').getContext('2d');
-			window.myBar = new Chart(ctx_bar, {
-				type: 'bar',
-				data: barChartData,
-				options: {
-					title: {
-						display: true,
-						text: 'Number of vulnerable dependencies over project lifetime'
-					},
-					tooltips: {
-						mode: 'index',
-						intersect: false
-					},
-					responsive: true,
-					scales: {
-						xAxes: [{
-							stacked: true,
-						}],
-						yAxes: [{
-							stacked: true
-						}]
-					}
-				}
-			});
-        
-        }
-    </script>
-</body>
+    </body>
 </html>

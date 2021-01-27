@@ -24,7 +24,6 @@ import os
     "access_tokens",
     type=str,
     multiple=True,
-    required=True,
     help="Github Access Token, see: https://github.com/settings/tokens",
 )
 
@@ -39,7 +38,7 @@ import os
 )
 def console(url, interval, output_file, access_tokens):
     """ \n\033[1m✨ Dependency Threat ✨\033[0m - Analyze Github Repository to Find npm Vulnerabilities."""
-
+    if not access_tokens: access_tokens = [None]
     df = analyze(url, access_tokens, interval)
     if output_file:
         df.to_csv(output_file, index=False)

@@ -31,7 +31,7 @@ def get_package_dependencies(
 
 
 def get_commits(
-    username: str, repo: str, access_tokens: list, filename: str = "package.json"
+    username: str, repo: str, access_tokens: list = [None], filename: str = "package.json"
 ) -> list:
 
     result = []
@@ -41,12 +41,18 @@ def get_commits(
         for x, access_token in enumerate(access_tokens, 1):
             access_failed = False
             print("access attempt: ", x)
-            r = requests.get(
-                "https://api.github.com/repos/{}/{}/commits?path={}&page={}&access_token={}".format(
-                    username, repo, filename, i, access_token
-                )
-            )
+            if not access_token:
+                url = "https://api.github.com/repos/{}/{}/commits?path={}&page={}".format(
+                                    username, repo, filename, i) 
+            else:  
+                url = "https://api.github.com/repos/{}/{}/commits?path={}&page={}&access_token={}".format(
+                                    username, repo, filename, i, access_token
+                                )
+            r = requests.get(url)
             if r.status_code == 403:
+                if not access_token: 
+                    print("ERROR: Github PUBLIC API REQUEST LIMIT EXHAUSTED.\nYou need an github access token to perform this analysis.")
+                    sys.exit(1)
                 if x == len(access_tokens):
                     print("Access Token Exausted")
                     sys.exit(1)
@@ -61,7 +67,7 @@ def get_commits(
                         author, date, message = "", "", ""
                         if commit:
                             author = commit.get("author").get("name")
-                            date = commit.get("author").get("date")
+                            date = commit.get("committer").get("date")
                             message = commit.get("message")
                         else:
                             print(sha, url, "commit not found")
@@ -99,7 +105,7 @@ def get_commits(
     return result
 
 
-def fetch_dependency_history(github_url: str, access_tokens: str) -> pd.DataFrame:
+def fetch_dependency_history(github_url: str, access_tokens: list= [None]) -> pd.DataFrame:
     """
        scrapes github repo to extract sha, url, author, date, message, package_name, version
     """
@@ -113,7 +119,6 @@ def fetch_dependency_history(github_url: str, access_tokens: str) -> pd.DataFram
         df = df.append(result, ignore_index=True)
         df = df.drop_duplicates()
         df = df[~df["version"].str.contains("/")]
-    
     df['date'] = pd.to_datetime(df['date'])
     today = date.today()
     dates = pd.date_range(df['date'].min().strftime('%Y-%m-%d'), today)
@@ -127,10 +132,9 @@ def fetch_dependency_history(github_url: str, access_tokens: str) -> pd.DataFram
             else: break
         rows = df[df['date'].dt.date == last_matched_date].copy(deep=False)
         rows['date'] = rows['date'].apply(lambda x: pytz.utc.localize(missing_date))
-        #print(rows)  print to check the progress
+        # print(rows)  print to check the progress
         nf = pd.concat([nf, rows])
     df = pd.concat([df, nf])
     df['date'] = df.date.astype(str)
-    #df.to_csv("Continuous_dates.csv", index=False)
-    
+    # df.to_csv("Continuous_dates.csv", index=False)
     return df

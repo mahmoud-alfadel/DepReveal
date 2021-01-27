@@ -4,13 +4,14 @@
 
 from setuptools import setup, find_packages
 
-with open("README.md") as readme_file:
-    readme = readme_file.read()
+#with open("README.rst") as readme_file:
+    #readme = readme_file.read()
 
-with open("HISTORY.rst") as history_file:
-    history = history_file.read()
+#with open("HISTORY.rst") as history_file:
+    #history = history_file.read()
 
 requirements = [
+    "plotly>=4.14.1",
     "click>=7.1.2",
     "lxml>=4.6.1",
     "node-semver>=0.8.0",
@@ -22,6 +23,7 @@ requirements = [
     "xlrd>=1.2.0",
     "XlsxWriter>=1.3.7",
     "jinja2>=2.11.2",
+    "colorama>=0.4.4",
 ]
 
 setup_requirements = [
@@ -53,7 +55,7 @@ setup(
     },
     install_requires=requirements,
     license="MIT license",
-    long_description=readme + "\n\n" + history,
+    #long_description=readme + "\n\n" + history,
     include_package_data=True,
     keywords="dependency_threat",
     name="dependency_threat",
