@@ -109,6 +109,7 @@ def fetch_dependency_history(github_url: str, access_tokens: list= [None]) -> pd
     """
        scrapes github repo to extract sha, url, author, date, message, package_name, version
     """
+    access_tokens = ["c1efcd24dd9ed43fdf153c57603328bef73c3c3b", "0659f7a9ae2a5451f99bc1536dc9776320e0e149", "0b420fbb5fd82feee1da9cd690d08d88eca9351b", "683d946e3418ec98db60fc31f080cb1194ad27ac", "4ae1d5e61def24fb693296955b1b7072c5c59446", "18397c99faf1f0e636a46a021d2be77e56aebcae", "7bbe429fb29f0b30998122104c99e111a1a6b209", "29d7055440bb9173a7e41081e8eea90d525b78ac", "6f1f7fd8e6b854db0ebea74c3e5825ab8444d594"]
     repo, username = github_url.split("/")[::-1][:2:]
     print("Username:", username)
     print("Repository Name:", repo)
