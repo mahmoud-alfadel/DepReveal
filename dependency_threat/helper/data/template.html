@@ -65,7 +65,11 @@
                               end: new Date(),
                               cellSize: 13,
                               range: 1,
-                              itemName: "(3=High, 2=Medium, 1=Low, 0=Unaffected) threat",
+                             // itemName: "(3=High, 2=Medium, 1=Low, 0=Unaffected) threat",
+                             subDomainTitleFormat: {
+		                                empty: "{date}",
+		                                filled: "{date}"
+	                            },
                               previousSelector: "#previous_b",
                               nextSelector: "#next_b",
                               legend: [1,2,3,4],
@@ -159,7 +163,8 @@
                                 barmode: 'stacked',
                                 bargap: 0.5,
                                 yaxis: {
-                                         rangemode: 'tozero'
+                                         rangemode: 'tozero',
+                                         fixedrange: true
                                 }
                               
                               };
