@@ -25,7 +25,7 @@ on any Linux-like and Mac platforms upon providing the right requirements and ve
 
 **To install**, simply run:
 ```
-pip3 install git+"https://github.com/mahmoud-alfadel/XXX"
+pip3 install git+"https://github.com/XXX/XXX"
 ```
 
 USAGE
