@@ -35,8 +35,8 @@ test_requirements = [
 ]
 
 setup(
-    author="Mahmoud Alfadel",
-    author_email="alfadelmahmood@gmail.com",
+    #author="Mahmoud Alfadel",
+    #author_email="alfadelmahmood@gmail.com",
     python_requires=">=3.5",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
@@ -63,7 +63,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/mahmoud-alfadel/dependency_threat",
+    #url="https://github.com/mahmoud-alfadel/dependency_threat",
     version="0.0.1",
     zip_safe=False,
 )
