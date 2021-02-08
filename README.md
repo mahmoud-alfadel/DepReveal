@@ -63,8 +63,8 @@ A snapshot of the generated HTML report for the Wiki.js project can be seen belo
 </p>
 
 
----
 **LICENSE**
 -----------
 Released under the [MIT License](https://opensource.org/licenses/mit-license.php).
 
+---
