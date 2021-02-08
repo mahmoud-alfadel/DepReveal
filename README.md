@@ -59,10 +59,6 @@ The tool generates two files:
 A snapshot of the generated HTML report for the Wiki.js project can be seen below:
 
 <p align="center">
-  <img src="https://github.com/mahmoud-alfadel/Figure/blob/main/report.png" />
-</p>
-
-<p align="center">
 <a href="#"><img src="https://github.com/mahmoud-alfadel/Figure/blob/main/report.png" /></a>
 </p>
 
