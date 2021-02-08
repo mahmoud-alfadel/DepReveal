@@ -26,19 +26,19 @@
 	}
 	</style>
 
-    <title>Dependency Threat Report of {{repository}}</title>
+    <title>Dependency Discoverability Report of {{repository}}</title>
   </head>
   <body>
       <section><div class="container">
         <div class="row">
             <div class="col jumbotron">
-              <h1 class='text-center'> Dependency Threat Analysis Report of {{repository}}</h1>
+              <h1 class='text-center'> Dependency Discoverability Analysis Report of {{repository}}</h1>
               <h3 class='text-center'>The repository <a href="https://github.com/{{author}}/{{repository}}">{{repository}}</a> belongs to <a href="https://github.com/{{author}}">{{author}}</a></h3>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                    <h2 class='text-center'> Project Lifetime Overview</h2>
+                    <h2 class='text-center'> History of Dependency Discoverability Levels </h2>
             </div>
         </div>
        <div class='divider'><hr></div>
@@ -107,7 +107,7 @@
 
        <div class='row'>
         <div class="col">
-                <h2 class='text-center'> Project Timeline Overview</h2>
+                <h2 class='text-center'> Distribution of Dependency Discoverability Levels </h2>
            </div>
           </div>
           <div class='row'>
@@ -126,7 +126,7 @@
                                 x: {{ intervals }},
                                 y: {{ low_threats }},
                                 type: "bar",
-                                name: "Low Threat",
+                                name: "Low",
                                 marker: {
                                   color: "blue",
                                 }
@@ -135,7 +135,7 @@
                                 x: {{ intervals }},
                                 y: {{ medium_threats }},
                                 type: "bar",
-                                name: "Medium Threat",
+                                name: "Medium",
                                 marker: {
                                   color: "orange",
                                 }
@@ -144,7 +144,7 @@
                                 x: {{ intervals }},
                                 y: {{ high_threats }},
                                 type: "bar",
-                                name: "High Threat",
+                                name: "High",
                                 marker: {
                                   color: "red",
                                 }
@@ -245,7 +245,7 @@
 </div>
 <div class='row'>
   <div class="col">
-          <h2 class='text-center'> Vulnerable Packages</h2>
+          <h2 class='text-center'> Vulnerable Packages across Discoverability Levels </h2>
      </div>
     </div>
     <div class="container">

@@ -7,32 +7,34 @@ import os
 
 @click.command()
 @click.argument("url")
-# @click.option(
-#     "-i",
-#     "--i",
-#     "--interval",
-#     "interval",
-#     type=int,
-#     default=5,
-#     show_default=True,
-#     help="set custom commit interval",
-# )
-# @click.option(
-#     "-a",
-#     "--a",
-#     "--access_tokens",
-#     "access_tokens",
-#     type=str,
-#     multiple=True,
-#     help="Github Access Token, see: https://github.com/settings/tokens",
-# )
+@click.option(
+    "-i",
+    "--i",
+    "--interval",
+    "interval",
+    type=int,
+    default=5,
+    show_default=True,
+    help="set custom commit interval",
+)
+@click.option(
+    "-a",
+    "--a",
+    "--access_tokens",
+    "access_tokens",
+    type=str,
+    multiple=True,
+    help="Github Access Token, see: https://github.com/settings/tokens",
+)
+
+
 @click.option(
     "-o",
     "--o",
     "--output_file",
     "output_file",
     type=str,
-    help="name & path of the output csv file. By default it will save in the current folder.",
+    help="name & path of the output csv file. By Default it will save in the current folder.",
 )
 def console(url, interval, output_file, access_tokens):
     """ \n\033[1m✨ Dependency Threat ✨\033[0m - Analyze Github Repository to Find npm Vulnerabilities."""
