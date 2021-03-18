@@ -32,14 +32,14 @@ USAGE
 -----------
 To understand the commands used by the tool, please run the following:
 ```
-dependency_threat --help
+dependency_reveal --help
 ```
 
 EXAMPLE
 -----------
 To help you use the tool, we show below an example of running the tool on a popular Node.js project called Wiki.js. We assume that the tool is already installed. We use the following command to run the tool:
 ```
-dependency_threat -o report.csv https://github.com/Requarks/wiki
+dependency_reveal -o report.csv https://github.com/Requarks/wiki
 ```
 The previous command uses the two arguments:
 * The first argument (optional) is the name & path of the output CSV file. By default, it will save in the current folder.
