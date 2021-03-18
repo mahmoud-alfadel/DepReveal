@@ -1,0 +1,3 @@
+[console_scripts]
+dependency_reveal = dependency_reveal.cli:console
+

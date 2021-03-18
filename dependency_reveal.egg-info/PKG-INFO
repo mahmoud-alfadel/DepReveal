@@ -1,11 +1,11 @@
 Metadata-Version: 1.2
-Name: dependency-threat
+Name: dependency-reveal
 Version: 0.0.1
 Summary: A Command Line tool to analyze npm dependency vulnerability
 Home-page: UNKNOWN
 License: MIT license
 Description: UNKNOWN
-Keywords: dependency_threat
+Keywords: dependency_reveal
 Platform: UNKNOWN
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Developers

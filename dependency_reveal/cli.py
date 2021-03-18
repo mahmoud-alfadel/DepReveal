@@ -1,7 +1,7 @@
-"""Console script for dependency_threat."""
+"""Console script for dependency_reveal."""
 import sys
 import click
-from .dependency_threat import analyze, generate_html
+from .dependency_reveal import analyze, generate_html
 import pandas as pd
 import os
 
@@ -37,7 +37,7 @@ import os
     help="name & path of the output csv file. By Default it will save in the current folder.",
 )
 def console(url, interval, output_file, access_tokens):
-    """ \n\033[1m✨ Dependency Threat ✨\033[0m - Analyze Github Repository to Find npm Vulnerabilities."""
+    """ \n\033[1m✨ Dependency Reveal ✨\033[0m - Analyze Github Repository to Find npm Vulnerabilities."""
     if not access_tokens: access_tokens = [None]
     df = analyze(url, access_tokens, interval)
     if output_file:

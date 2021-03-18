@@ -1,7 +1,7 @@
-from dependency_threat.helper.step1 import fetch_dependency_history
-from dependency_threat.helper.step2 import identifying_vulnerability_levels
-from dependency_threat.helper.step3 import repo_commits_combiner
-from dependency_threat.helper.step4 import find_commits_at_intervals
+from dependency_reveal.helper.step1 import fetch_dependency_history
+from dependency_reveal.helper.step2 import identifying_vulnerability_levels
+from dependency_reveal.helper.step3 import repo_commits_combiner
+from dependency_reveal.helper.step4 import find_commits_at_intervals
 from jinja2 import Template
 import os
 path = os.path.abspath(__file__).rsplit("/", 1)[0]
