@@ -97,9 +97,9 @@
           </style>
           <ul class="legend">
             <li><span class="unaffected"></span> Unaffected</li>
-            <li><span class="low"></span> Low</li>
-            <li><span class="medium"></span> Medium</li>
-            <li><span class="high"></span> High</li>
+            <li><span class="low"></span> Hidden</li>
+            <li><span class="medium"></span> Reported</li>
+            <li><span class="high"></span> Public</li>
          </ul>
         </div>
       </div>
@@ -126,7 +126,7 @@
                                 x: {{ intervals }},
                                 y: {{ low_threats }},
                                 type: "bar",
-                                name: "Low",
+                                name: "Hidden",
                                 marker: {
                                   color: "blue",
                                 }
@@ -135,7 +135,7 @@
                                 x: {{ intervals }},
                                 y: {{ medium_threats }},
                                 type: "bar",
-                                name: "Medium",
+                                name: "Reported",
                                 marker: {
                                   color: "orange",
                                 }
@@ -144,7 +144,7 @@
                                 x: {{ intervals }},
                                 y: {{ high_threats }},
                                 type: "bar",
-                                name: "High",
+                                name: "Public",
                                 marker: {
                                   color: "red",
                                 }
@@ -214,7 +214,7 @@
                   opacity: 0.8,
                   line: { color: 'blue', width: 20 },
                   mode: 'lines',
-                  name: 'Low Threats'
+                  name: 'Hidden'
                 },
                 {
                   x: {{medium_timeline_date}},
@@ -223,7 +223,7 @@
                   opacity: 0.8,
                   line: { color: 'orange', width: 20 },
                   mode: 'lines',
-                  name: 'Medium Threats'
+                  name: 'Reported'
                 },{
                   x: {{high_timeline_date}},
                   y: {{high_timeline}},
@@ -231,7 +231,7 @@
                   opacity: 0.8,
                   line: { color: 'red', width: 20 },
                   mode: 'lines',
-                  name: 'High Threat'
+                  name: 'Public'
                 }], layout, {displaylogo:false, displayModeBar:false})
 
 
@@ -267,9 +267,9 @@
 .legend_2 .unaffected { background-color: green; }
         </style>
         <ul class="legend_2">
-          <li><span class="low"></span> Low</li>
-          <li><span class="medium"></span> Medium</li>
-          <li><span class="high"></span> High</li>
+          <li><span class="low"></span> Hidden</li>
+          <li><span class="medium"></span> Reported</li>
+          <li><span class="high"></span> Public</li>
        </ul>
       </div>
     </div>
