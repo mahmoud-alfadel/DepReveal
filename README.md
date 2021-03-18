@@ -1,11 +1,11 @@
-Dependency Discoverability
+Dependency Reveal
 =================
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 ![](https://badgen.net/badge/version/v1.0.0/red)
 ![](https://badgen.net/badge/python/3.5|3.6|3.7/blue)
 ![](https://badgen.net/badge/PRs/Welcome/green)
    
-A Command-Line tool to analyze the discoverability of npm dependency vulnerabilities through the entire history of your GitHub project.
+A Command-Line tool to analyze the discoverability of npm dependency vulnerabilities through the entire history of a GitHub project.
 
 
 CONCEPT
@@ -14,8 +14,8 @@ The workflow of the tool goes as follows:
 
 * Fetch the history of the package.json file.
 * Resolve dependency versions.
-* Identify and classify the discoverability levels of vulnerable dependency versions (based on the approach in our [study](Anon.)).
-* Generates a CSV file that contains the analysis, and HTML file that visualizes the results.
+* Identify and classify the discoverability levels of vulnerable dependency versions (based on the approach in our [study](https://arxiv.org/abs/2009.09019)).
+* Generates a CSV file that contains the analysis and HTML file that visualizes the results.
 
 
 INSTALLATION
@@ -25,7 +25,7 @@ on any Linux-like and Mac platforms upon providing the right requirements and ve
 
 **To install**, simply run:
 ```
-pip3 install git+"https://github.com/XXX/XXX"
+pip3 install git+"https://github.com/mahmoud-alfadel/DependencyReveal/"
 ```
 
 USAGE
@@ -42,7 +42,7 @@ To help you use the tool, we show below an example of running the tool on a popu
 dependency_threat -o report.csv https://github.com/Requarks/wiki
 ```
 The previous command uses the two arguments:
-* The first argument (optional) is the name & path of the output CSV file. By default, it will save in your current folder.
+* The first argument (optional) is the name & path of the output CSV file. By default, it will save in the current folder.
 * The second argument (required) is the URL of the project GitHub repository.
 
 
