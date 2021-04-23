@@ -6,7 +6,7 @@ DepReveal
    
 A tool to analyze the discoverability of npm dependency vulnerabilities in a GitHub project.
 
-CONCEPT
+Concept
 ---------------------------------------------------------------------
 The workflow of the tool goes as follows:
 
@@ -16,7 +16,7 @@ The workflow of the tool goes as follows:
 * Generates a CSV file that contains the analysis and HTML file that visualizes the analysis.
 
 
-INSTALLATION
+Installation
 -----------------------
 The command-line version of the tool is developed and tested mainly on GNU/Linux and Mac platforms. Thus it is very likely it will work out of the box
 on any Linux-like and Mac platforms upon providing the right requirements and version of Python and Git.
@@ -26,16 +26,16 @@ on any Linux-like and Mac platforms upon providing the right requirements and ve
 pip3 install git+"https://github.com/mahmoud-alfadel/DependencyReveal/"
 ```
 
-USAGE
+Usage
 -----------
 To understand the commands used by the tool, please run the following:
 ```
 dependency_reveal --help
 ```
 
-EXAMPLE
+Example
 -----------
-To help you use the tool, we show below an example of running the tool on a popular Node.js project called React-native from Facebook. We assume that the tool is already installed. We use the following command to run the tool:
+To help you use the tool, we show below an example of running the tool on a popular Node.js project called *React-native* from Facebook. We assume that the tool is already installed. We use the following command to run the tool:
 ```
 dependency_reveal -o report.csv https://github.com/facebook/react-native
 ```
@@ -43,7 +43,7 @@ The previous command uses the two arguments:
 * The first argument (optional) is the name & path of the generated CSV file. By default, it will save in your current folder.
 * The second argument (required) is the URL of the project GitHub repository. Note 
 
-TOOL OUTPUT
+Tool Output
 -----------
 The tool generates two files: 
 * CSV file that contains all details about the discoverability levels of dependencies throughout the entire project lifetime (in days).
@@ -53,10 +53,10 @@ The tool generates two files:
     - **Discoverability Levels Frequency**: it shows the frequency of dependency vulnerabilities per discoverability level. Using the configuration bar available at the top right-side corner of the plot, the user can zoom in/out, enable/disable one of the levels that appear on the legends of the plot.
 
     - **Period of Package Discoverability (in days)**: it show the period of time in which a vulnerable dependency had been affecting the application, per discoverability level. Users can also enable/disable one of the discoverability levels by clicking on the legends of the plot.
-    - 
+
     - **Package Versions Discoverability**: it shows what package versions account for the vulnerable dependencies.
 
-The generated HTML report for the React-native project can be seen [here](https://bit.ly/3xkUxZk)).
+The generated HTML report for the *React-native* project can be seen [here](https://bit.ly/3xkUxZk).
 
 Web-UI
 -----------
