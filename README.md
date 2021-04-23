@@ -1,11 +1,10 @@
-Dependency Reveal
+DepReveal
 =================
 ![](https://badgen.net/badge/version/v0.0.1/red)
 ![](https://badgen.net/badge/python/3.5|3.6|3.7/blue)
 ![](https://badgen.net/badge/PRs/Welcome/green)
    
-A Command-Line tool to analyze the discoverability of npm dependency vulnerabilities throughout the entire history of a GitHub project.
-
+A Web-UI & Command-Line tool to analyze the discoverability of npm dependency vulnerabilities throughout the entire history of a GitHub project.
 
 CONCEPT
 ---------------------------------------------------------------------
@@ -13,13 +12,13 @@ The workflow of the tool goes as follows:
 
 * Fetch the history of the package.json file.
 * Resolve dependency versions.
-* Identify and classify the discoverability levels of vulnerable dependency versions (based on the approach in our [study](https://arxiv.org/abs/2009.09019)).
+* Identify and classify the discoverability levels of vulnerable dependency versions (based on the approach in our study.
 * Generates a CSV file that contains the analysis and HTML file that visualizes the results.
 
 
 INSTALLATION
 -----------------------
-The tool is developed and tested mainly on GNU/Linux and Mac platforms. Thus it is very likely it will work out of the box
+The command-lin version of the tool is developed and tested mainly on GNU/Linux and Mac platforms. Thus it is very likely it will work out of the box
 on any Linux-like and Mac platforms upon providing the right requirements and version of Python.
 
 **To install**, simply run:
@@ -36,9 +35,9 @@ dependency_reveal --help
 
 EXAMPLE
 -----------
-To help you use the tool, we show below an example of running the tool on a popular Node.js project called Wiki.js. We assume that the tool is already installed. We use the following command to run the tool:
+To help you use the tool, we show below an example of running the tool on a popular Node.js project called React-native from Facebook. We assume that the tool is already installed. We use the following command to run the tool:
 ```
-dependency_reveal -o report.csv https://github.com/Requarks/wiki
+dependency_reveal -o report.csv https://github.com/facebook/react-native
 ```
 The previous command uses the two arguments:
 * The first argument (optional) is the name & path of the output CSV file. By default, it will save in the current folder.
@@ -57,10 +56,14 @@ The tool generates two files:
     - **Period of Package Exposition (in days)**: it show the period of time in which a vulnerable package had been affecting the application, per discoverability level. Users can also enable/disable one of the discoverability levels by clicking on the legends at the right-side of the report plot.
     - **Package Versions Discoverability**: it shows what package versions account for the project dependency vulnerabilities.
 
-A snapshot of the generated HTML report for the Wiki.js project can be seen below:
+A snapshot of the generated HTML report for the React-native project can be seen in this [screenshot](https://bit.ly/3xkUxZk)).
+
+The Web-UI version
+-----------
+We provide a Web-UI for the tool to facilitate its usage. A snapshot of the Web-UI can be seen below:
 
 <p align="center">
-<a href="#"><img src="https://github.com/mahmoud-alfadel/DependencyReveal/blob/main/tests/sample_outputs/reportExample.png" /></a>
+<a href="#"><img src="https://github.com/mahmoud-alfadel/DependencyReveal/blob/main/tests/sample_outputs/reportExample_web_ui.png" /></a>
 </p>
 
 
