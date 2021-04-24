@@ -35,8 +35,8 @@ test_requirements = [
 ]
 
 setup(
-    #author="Mahmoud Alfadel",
-    #author_email="alfadelmahmood@gmail.com",
+    #author="XXX",
+    #author_email="XXX",
     python_requires=">=3.5",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
