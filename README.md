@@ -13,7 +13,7 @@ The workflow of the tool goes as follows:
 * Fetch the history of the package.json file.
 * Resolve dependency versions.
 * Identify and classify the discoverability levels of vulnerable dependency versions (based on the approach in our study).
-* Generates a CSV file that contains the analysis and HTML file that visualizes the analysis.
+* Generates a CSV file that contains the analysis and an HTML file that visualizes the analysis.
 
 Installation
 -----------------------
