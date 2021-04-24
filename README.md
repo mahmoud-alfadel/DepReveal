@@ -15,7 +15,6 @@ The workflow of the tool goes as follows:
 * Identify and classify the discoverability levels of vulnerable dependency versions (based on the approach in our study).
 * Generates a CSV file that contains the analysis and HTML file that visualizes the analysis.
 
-
 Installation
 -----------------------
 The command-line version of the tool is developed and tested mainly on GNU/Linux and Mac platforms. Thus it is very likely it will work out of the box
@@ -23,7 +22,7 @@ on any Linux-like and Mac platforms upon providing the right requirements and ve
 
 **To install**, simply run:
 ```
-pip3 install git+"https://github.com/mahmoud-alfadel/DependencyReveal/"
+pip3 install git+"https://github.com/AnonymousName/DepReveal/"
 ```
 
 Usage
@@ -60,12 +59,7 @@ The generated HTML report for the *React-native* project can be seen [here](http
 
 Web-UI
 -----------
-We provide a [Web-UI](https://bit.ly/3emg5w3) for the tool to facilitate its usage. A screenshot of the Web-UI can also be seen below:
-
-<p align="center">
-<a href="#"><img src="https://github.com/mahmoud-alfadel/DependencyReveal/blob/main/tests/sample_outputs/reportExample_web_ui.png" /></a>
-</p>
-
+We provide a [Web-UI](https://bit.ly/3emg5w3) for the tool to facilitate its usage.
 
 **LICENSE**
 -----------
