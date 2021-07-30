@@ -22,7 +22,7 @@ on any Linux-like and Mac platforms upon providing the right requirements and ve
 
 **To install**, simply run:
 ```
-pip3 install git+"https://github.com/AnonymousName/DepReveal/"
+pip3 install git+"https://github.com/mahmoud-alfadel/DepReveal/"
 ```
 
 Usage
@@ -34,9 +34,9 @@ dependency_reveal --help
 
 Example
 -----------
-To help you use the tool, we show below an example of running the tool on a popular Node.js project called *React-native* from Facebook. We assume that the tool is already installed. We use the following command to run the tool:
+To help you use the tool, we show below an example of running the tool on a popular Node.js project called *atom* from atom. We assume that the tool is already installed. We use the following command to run the tool:
 ```
-dependency_reveal -o report.csv https://github.com/facebook/react-native
+dependency_reveal -o report.csv https://github.com/atom/atom
 ```
 The previous command uses the two arguments:
 * The first argument (optional) is the name & path of the generated CSV file. By default, it will save in your current folder.
@@ -55,7 +55,7 @@ The tool generates two files:
 
     - **Package Versions Discoverability**: it shows what package versions account for the vulnerable dependencies.
 
-The generated HTML report for the *React-native* project can be seen [here](https://bit.ly/3xkUxZk).
+The generated HTML report for the *atom* project can be seen [here](https://bit.ly/2Vinzuq).
 
 Web-UI
 -----------
