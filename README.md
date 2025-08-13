@@ -57,7 +57,7 @@ The tool generates two files:
 
 The generated HTML report for the *atom* project can be seen [here](https://bit.ly/2Vinzuq).
 
-Web-UI
+Web-UI (no longer available due to funding limits).
 -----------
 We provide a [Web-UI](https://bit.ly/3emg5w3) for the tool to facilitate its usage.
 
